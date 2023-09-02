@@ -10,15 +10,18 @@ import EditarProdutos from './routes/EditarProdutos.jsx';
 import Home from './routes/home.jsx';
 import Produtos from './routes/Produtos.jsx';
 import Erro404 from './routes/Erro404.jsx';
+import ExcluirProdutos from './routes/ExcluirProdutos.jsx';
 
 const router = createBrowserRouter([
-  {path: '/', element: <App/>, 
+  { path: '/' , element: <App/>,
     errorElement: <Erro404/>,
     children: [
-      {path: '/', element: <Home/>},
-      {path: '/produtos', element: <Produtos/>},
-      {path: '/editar/produtos/:id', element: <EditarProdutos/>},
-    ]}
+      { path: '/' , element: <Home/>},
+      { path: '/produtos' , element: <Produtos/>},
+      { path: '/editar/produtos/:id' , element: <EditarProdutos/>},
+      { path: '/excluir/produtos/:id' , element: <ExcluirProdutos/>},
+    ]
+  }
 ]);
 
 //Bloco de Rotas
