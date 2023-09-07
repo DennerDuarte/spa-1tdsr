@@ -20,6 +20,13 @@ export default function EditarProdutos() {
     preco: produtoFiltrado.preco
   });
 
+  const handleChange = (event) =>{
+
+      const {name, value} = event.target;
+      setProduto({...produto, [name]: value});
+
+  } 
+
   return (
     <>
     <h1>EditarProdutos</h1>
@@ -29,23 +36,22 @@ export default function EditarProdutos() {
           <legend>Produto Selecionado</legend>
           <div>
             <label htmlFor="idNome">Nome</label>
-            <input type="text" name="nome" id="idNome" value={produto.nome}/>
+            <input type="text" name="nome" id="idNome" onChange={handleChange} value={produto.nome}/>
           </div>
           <div>
             <label htmlFor="idDesc">Descrição</label>
-            <input type="text" name="desc" id="idDesc" value={produto.desc}/>
+            <input type="text" name="desc" id="idDesc" onChange={handleChange} value={produto.desc}/>
           </div>
           <div>
             <label htmlFor="idImg">Imagem</label>
-            <input type="url" name="img" id="idImg" value={produto.img}/>
+            <input type="url" name="img" id="idImg" onChange={handleChange} value={produto.img}/>
           </div>
           <div>
             <label htmlFor="idPreco">Preço</label>
-            <input type="text" name="preco" id="idPreco" value={produto.preco}/>
+            <input type="text" name="preco" id="idPreco" onChange={handleChange} value={produto.preco}/>
           </div>
-
           <div>
-            <button onClick={()=> setProduto()}>Editar</button>
+            <button>Editar</button>
           </div>
         </fieldset>
       </form>
