@@ -15,7 +15,7 @@ export default function Produtos() {
   //   console.log(`Executa sempre - ${count} !`);
   // });
 
-const [novaLista, setNovaLista] = useState[{}];
+const [novaLista, setNovaLista] = useState([{}]);
 
 //Neste formato o useEffect executa apenas quando ocorrer o carregamento do componente rprincipal.
   useEffect(() => {
@@ -48,7 +48,7 @@ const [novaLista, setNovaLista] = useState[{}];
           </thead>
 
           <tbody>
-            {NovaLista.map((item, indice) => (
+            {novaLista.map((item, indice) => (
               <tr key={indice} className={styles.tblRow}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>
