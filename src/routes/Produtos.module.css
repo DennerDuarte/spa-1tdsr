@@ -1,3 +1,4 @@
+
 .tblEstilo{
     border-collapse: collapse;
     border: 2px solid #ccc;
@@ -13,8 +14,8 @@
 
     .tblRow{
         background-color: #fff8dc;
-
-        & :hover{
+        
+        &:hover{
             background-color: #6b7171;
             color: #fff;
         }
@@ -27,11 +28,13 @@
             &:last-child{
                 text-align: center;
             }
+
             & img{
                 width: 30%;
             }
-            
         }
 
     }
+
 }
+

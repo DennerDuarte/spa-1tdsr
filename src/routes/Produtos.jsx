@@ -15,14 +15,16 @@ export default function Produtos() {
   //   console.log(`Executa sempre - ${count} !`);
   // });
 
+const [novaLista, setNovaLista] = useState[{}];
+
 //Neste formato o useEffect executa apenas quando ocorrer o carregamento do componente rprincipal.
-  // useEffect(() => {
-  //   console.log("Executa apenas uma vez");
-  // },[]);
+  useEffect(() => {
+    setNovaLista(ListaProdutos);
+  },[]);
   
-  // useEffect(() => {
-  //   console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
-  // },[count]);
+  useEffect(() => {
+    console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
+  },[count]);
 
 
   return (
@@ -46,7 +48,7 @@ export default function Produtos() {
           </thead>
 
           <tbody>
-            {ListaProdutos.map((item, indice) => (
+            {NovaLista.map((item, indice) => (
               <tr key={indice} className={styles.tblRow}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>

@@ -7,8 +7,8 @@ export default function Lista(){
         
             
             <Cabecalho>        
-                    <li> <Link to= '/'> Home</Link> </li>
-                    <li> <Link to='/produtos'>Produtos </Link> </li>
+                    <li><Link to='/'>Home</Link> </li>
+                    <li><Link to='/produtos'>Produtos</Link> </li>          
             </Cabecalho>
             
         </>
