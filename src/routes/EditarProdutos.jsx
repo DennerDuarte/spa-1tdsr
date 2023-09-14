@@ -32,8 +32,8 @@ export default function EditarProdutos() {
   }
 
   const handleSubmit = (event)=>{
+    
     event.preventDefault();
-
 
         let indice;
 

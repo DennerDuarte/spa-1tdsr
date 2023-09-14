@@ -7,7 +7,7 @@ import App from './App.jsx'
 //Bloco de Rotas
 import {createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EditarProdutos from './routes/EditarProdutos.jsx';
-import Home from './routes/home.jsx';
+import Home from './routes/Home.jsx';
 import Produtos from './routes/Produtos.jsx';
 import Erro404 from './routes/Erro404.jsx';
 import ExcluirProdutos from './routes/ExcluirProdutos.jsx';
