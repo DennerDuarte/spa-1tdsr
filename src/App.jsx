@@ -3,6 +3,7 @@ import Rodape from "./components/Rodape";
 import viteLogo from "./assets/vite.svg";
 import Lista from "./components/Lista";
 import { Outlet } from "react-router-dom";
+import styles from "./App.module.css";
 
 export default function App(){
 
@@ -10,7 +11,7 @@ export default function App(){
 
   return(
     <>
-      <div className="container">
+      <div className={styles.container}>
     
     {/* Criar um cabeçalho com um header, um h1 e uma lista ul + 3 elementos li. */}
       <Lista/>
