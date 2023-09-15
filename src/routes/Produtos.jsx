@@ -80,6 +80,13 @@ const [novaLista, setNovaLista] = useState([{}]);
           </tfoot>
 
         </table>
+        <div>
+              <Link to='/adicionar/produtos'>
+                <button>
+                  Adicionar Produto
+                </button>
+              </Link>
+        </div>
       </div>
     </>
   );
