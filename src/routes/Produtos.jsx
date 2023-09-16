@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 export default function Produtos() {
   document.title = "Produtos";
 
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
 
   //Neste formato o useEffect executa sempre que ocorrer uma alteração de estado de algum elemento ou no componente.
   // useEffect(() => {
@@ -22,17 +22,17 @@ const [novaLista, setNovaLista] = useState([{}]);
     setNovaLista(ListaProdutos);
   },[]);
   
-  useEffect(() => {
-    console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
-  },[count]);
+  // useEffect(() => {
+  //   console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
+  // },[count]);
 
 
   return (
     <>
       <h1>Lista de Produtos</h1>
-      <div>
+      {/* <div>
         <button onClick={()=> setCount( count + 1)}>COUNTER - {count}</button>
-      </div>
+      </div> */}
       <div>
         <table className={styles.tblEstilo}>
 
