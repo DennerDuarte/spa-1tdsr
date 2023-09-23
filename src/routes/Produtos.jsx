@@ -3,14 +3,14 @@ import { AiFillEdit as Editar } from "react-icons/ai";
 import { RiDeleteBin2Fill as Excluir } from "react-icons/ri";
 import styles from "./Produtos.module.css";
 import { useState, useEffect } from "react";
+import ModalInserir from "../components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
   document.title = "Produtos";
 
   const [listaJson, setListaJson] = useState([{}]);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     fetch("http://localhost:5000/produtos", {
       method: "GET",
       headers: {
@@ -21,12 +21,19 @@ export default function Produtos() {
       .then((listaProdutosJson) => {
         setListaJson(listaProdutosJson);
       });
-  },[]);
+  }, []);
+
+  const [open, setOpen] = useState(false);
 
 
   return (
     <>
       <h1>Lista de Produtos</h1>
+
+      {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
+      
+      <button onClick={()=> setOpen(true)}>OPEN - MODAL</button>
+
       <div>
         <table className={styles.tblEstilo}>
           <thead className={styles.tblHeader}>
@@ -72,11 +79,6 @@ export default function Produtos() {
             </tr>
           </tfoot>
         </table>
-        <div>
-          <Link to="/adicionar/produtos">
-            <button>Adicionar Produto</button>
-          </Link>
-        </div>
       </div>
     </>
   );
