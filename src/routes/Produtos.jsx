@@ -8,31 +8,29 @@ import ModalInserir from "../components/ModalInserir/ModalInserir";
 export default function Produtos() {
   document.title = "Produtos";
 
-  const [listaJson, setListaJson] = useState([{}]);
+    const [listaJson, setListaJson] = useState([{}]);
 
-  useEffect(() => {
-
-    fetch("http://localhost:5000/produtos", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+  useEffect(()=>{
+    fetch("http://localhost:5000/produtos",{
+      method:"GET",
+      headers:{
+        "Content-Type":"application/json"
+      }
     })
-      .then((response) => response.json())
-      .then((listaProdutosJson) => {
-        setListaJson(listaProdutosJson);
-      });
-  }, []);
+    .then((response)=> response.json())
+    .then((listaProdutosJson)=> {
+        setListaJson(listaProdutosJson)
+    })
+  },[]);
 
   const [open, setOpen] = useState(false);
 
-
   return (
-    <>
+    <> 
       <h1>Lista de Produtos</h1>
 
       {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
-      
+
       <button onClick={()=> setOpen(true)}>OPEN - MODAL</button>
 
       <div>
@@ -79,6 +77,7 @@ export default function Produtos() {
               <td colSpan={6}>PRODUTOS</td>
             </tr>
           </tfoot>
+
         </table>
       </div>
     </>
