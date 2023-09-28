@@ -1,41 +1,42 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { RiDeleteBin2Fill as Excluir } from "react-icons/ri";
 import styles from "./Produtos.module.css";
 import { useState, useEffect } from "react";
+import ModalInserir from "../components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
   document.title = "Produtos";
 
-  const [count, setCount] = useState(0);
+  const [listaJson, setListaJson] = useState([{}]);
 
-  //Neste formato o useEffect executa sempre que ocorrer uma alteração de estado de algum elemento ou no componente.
-  // useEffect(() => {
-  //   console.log(`Executa sempre - ${count} !`);
-  // });
-
-const [novaLista, setNovaLista] = useState([{}]);
-
-//Neste formato o useEffect executa apenas quando ocorrer o carregamento do componente rprincipal.
   useEffect(() => {
-    setNovaLista(ListaProdutos);
-  },[]);
-  
-  // useEffect(() => {
-  //   console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
-  // },[count]);
+
+    fetch("http://localhost:5000/produtos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((listaProdutosJson) => {
+        setListaJson(listaProdutosJson);
+      });
+  }, []);
+
+  const [open, setOpen] = useState(false);
 
 
   return (
     <>
       <h1>Lista de Produtos</h1>
-      <div>
-        <button onClick={()=> setCount( count + 1)}>COUNTER - {count}</button>
-      </div>
+
+      {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
+      
+      <button onClick={()=> setOpen(true)}>OPEN - MODAL</button>
+
       <div>
         <table className={styles.tblEstilo}>
-
           <thead className={styles.tblHeader}>
             <tr>
               <th>ID</th>
@@ -48,7 +49,7 @@ const [novaLista, setNovaLista] = useState([{}]);
           </thead>
 
           <tbody>
-            {novaLista.map((item, indice) => (
+            {listaJson.map((item, indice) => (
               <tr key={indice} className={styles.tblRow}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>
@@ -78,7 +79,6 @@ const [novaLista, setNovaLista] = useState([{}]);
               <td colSpan={6}>PRODUTOS</td>
             </tr>
           </tfoot>
-
         </table>
       </div>
     </>

@@ -4,3 +4,10 @@
     direction: column;
     grid-template-rows: 20% 40% 20%;
 }
+
+footer{
+        margin: 7% 0;
+        display: block; width: 100%; justify-content: center;
+        align-items: center; height: 7vh;
+        color: black; flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
 
@@ -75,6 +75,9 @@ export default function EditarProdutos() {
             </div>
             <div>
               <button>EDITAR</button>
+              <Link to='/produtos'>
+                <button>Cancelar</button>
+              </Link>
             </div>
           </fieldset>
         </form>
