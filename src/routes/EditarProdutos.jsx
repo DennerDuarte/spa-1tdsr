@@ -71,13 +71,7 @@ export default function EditarProdutos() {
             </div>
             <div>
               <label htmlFor="idPreco">Preço</label>
-              <input
-                type="text"
-                name="preco"
-                id="idPreco" 
-                onChange={handleChange} 
-                value={produto.preco}
-              />
+              <input type="text" name="preco" id="idPreco" onChange={handleChange} value={produto.preco} />
             </div>
             <div>
               <button>EDITAR</button>

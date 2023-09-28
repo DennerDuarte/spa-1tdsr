@@ -22,9 +22,9 @@ const [novaLista, setNovaLista] = useState([{}]);
     setNovaLista(ListaProdutos);
   },[]);
   
-  useEffect(() => {
-    console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
-  },[count]);
+  // useEffect(() => {
+  //   console.log("Executa sempre que ocorrer uma alteração de estado do elemento ou no componente indicado no array de dependências!");
+  // },[count]);
 
 
   return (
